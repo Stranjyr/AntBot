@@ -8,7 +8,7 @@ class rfid(object):
 
 	ser = serial.Serial()
 
-	def __init__(self, port, baud, t=.1):
+	def __init__(self, port = "/dev/ttyUSB0", baud = 19200, t=.1):
 
 		 print(self.setup(port, baud, t))
 
