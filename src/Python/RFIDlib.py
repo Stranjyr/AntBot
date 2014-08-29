@@ -125,8 +125,7 @@ class rfid(object):
 
 		self.ser.write((ck%256,))
 
-		
-return self.ser.read(21)
+		return self.ser.read(21)
 
 
 	#reads the position digits of a tag, as defined in documentation
