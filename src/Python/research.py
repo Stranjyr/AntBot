@@ -1,5 +1,4 @@
 import create
-import seeker
 import sys
 from random import *
 
@@ -42,4 +41,17 @@ class Movement():
 #main for testing purposes        
 def main():
     bot = create.Create("COM4")
-    x = int(sys.argv[1])    #how many times to turn around
+    print("-1 is left")
+    print("1 is right")
+    print("0 is straight")
+    x = int(input("Where to rotate?"))
+    bot.rotate(1)
+    print("test is 1, meaning the robot should turn right")
+    bot.rotate(-1)
+    print("test is -1, meaning the robot should turn left")
+    bot.rotate(0)
+    print("test is 0, meaning the robot should go straight")
+    bot.sensors(x)
+    print("test of your input, meaning the robot should go according to what you gave it")
+
+main()
