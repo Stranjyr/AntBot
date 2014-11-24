@@ -23,13 +23,18 @@ class Movement():
             sleep(1)
             self.bot.stop()
             #move forward cm/sec
-        else:
+        elif rotation == 1:
             self.bot.go(0,self.degree)
             sleep(1)
             self.bot.stop()
             #rotate right
+        else: #None - there were no visible tags. rotate 180
+            self.bot.go(0,60)
+            sleep(3)
+            self.bot.stop()
 
-    def sensors(self,rotation):
+    #edited the sensors method. this way we can choose to call sensors and rotation code separately.
+    def sensors(self):
         sensors = self.bot.sensors([create.LEFT_BUMP, create.RIGHT_BUMP])
         if sensors[create.LEFT_BUMP] == 1:  #hit something to the left
             self.bot.go(0,-60)
@@ -39,9 +44,7 @@ class Movement():
             self.bot.go(0,60)
             sleep(2)
             self.bot.stop()
-        else:       
-            self.bot.go(15,0)
-            self.rotate(rotation)
+
 
 #main for testing purposes        
 def main():
@@ -51,4 +54,4 @@ def main():
     print("0 is straight")
     x = int(input("Where to go?"))
     bot.sensors(x)
-main()    
+#main()    
